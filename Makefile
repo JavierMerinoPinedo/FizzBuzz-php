@@ -5,7 +5,7 @@ build-image:
 	docker build -t docker-php-fizzbuzz .
 
 build-container:
-	docker run -dt --name docker-php-fizzbuzz -v .:/540/fizzbuzz docker-php-fizzbuzz
+	docker run -dt --name docker-php-fizzbuzz -v .:/540/FizzBuzz docker-php-fizzbuzz
 	docker exec docker-php-fizzbuzz composer install
 
 start:
