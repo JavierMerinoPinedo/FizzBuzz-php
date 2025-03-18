@@ -11,7 +11,7 @@ final class FizzBuzzTest extends TestCase
 {
     private FizzBuzzKata $fizzBuzz;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -21,22 +21,22 @@ final class FizzBuzzTest extends TestCase
     /**
      * @test
      */
-    public function given3ReturnsFizz(): void
+    public function givenMultipleOfFizzBuzzNumberReturnsFizzBuzz(): void
     {
         // Act
-        $result = $this->fizzBuzz->convert(3);
+        $result = $this->fizzBuzz->convert(30);
 
         // Assert
-        $this->assertEquals('Fizz', $result);
+        $this->assertEquals('FizzBuzz', $result);
     }
 
     /**
      * @test
      */
-    public function given5ReturnsBuzz(): void
+    public function givenMultipleOfBuzzNumberReturnsBuzz(): void
     {
         // Act
-        $result = $this->fizzBuzz->convert(5);
+        $result = $this->fizzBuzz->convert(10);
 
         // Assert
         $this->assertEquals('Buzz', $result);
@@ -45,24 +45,24 @@ final class FizzBuzzTest extends TestCase
     /**
      * @test
      */
-    public function noMultipleOfThreeOrFiveReturnsNumber(): void
+    public function givenMultipleOfFizzNumberReturnsFizz(): void
+    {
+        // Act
+        $result = $this->fizzBuzz->convert(6);
+
+        // Assert
+        $this->assertEquals('Fizz', $result);
+    }
+
+    /**
+     * @test
+     */
+    public function notMultipleOfFizzNumberOrBuzzNumberReturnsNumber(): void
     {
         // Act
         $result = $this->fizzBuzz->convert(1);
 
         // Assert
         $this->assertEquals(1, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function multipleOf15ReturnsFizzBuzz(): void
-    {
-        // Act
-        $result = $this->fizzBuzz->convert(15);
-
-        // Assert
-        $this->assertEquals('FizzBuzz', $result);
     }
 }
